@@ -30,6 +30,14 @@ With this gem installed, you are able to handle errors like in past versions of 
 Keep in mind that you have to restart your server when changing the rescue-method!
 
 
+If you want to handle more exceptions just add initializer like this example:
+
+  module Vidibus::RoutingError
+    ERRORS = [ActionController::RoutingError, AbstractController::ActionNotFound]
+  end
+
+to config/initializers
+
 == Copyright
 
 Copyright (c) 2010 Andre Pankratz. See LICENSE for details.
