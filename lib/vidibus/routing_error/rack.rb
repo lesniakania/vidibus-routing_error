@@ -9,7 +9,7 @@ module Vidibus
         env["action_dispatch.show_exceptions"] = false 
         @app.call(env)
       rescue => exception
-        if exception.kind_of?(ActionController::RoutingError)
+        if Vidibus::RoutingError::ERRORS.include?(exception.class)
           env["vidibus-routing_error.exception"] = exception
           env["vidibus-routing_error.request_uri"] = env["REQUEST_URI"]
           
